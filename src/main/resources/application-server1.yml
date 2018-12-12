@@ -1,0 +1,17 @@
+server:
+  port: 20001
+eureka:
+  instance:
+    hostname: eureka-server-1
+  client:
+    #表示是否注册自身到eureka服务器
+    register-with-eureka: false
+    #是否从eureka上获取注册信息
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    #设为false，关闭自我保护
+    enable-self-preservation: false
+    #清理间隔（单位毫秒，默认是60*1000）
+    eviction-interval-timer-in-ms: 60000
